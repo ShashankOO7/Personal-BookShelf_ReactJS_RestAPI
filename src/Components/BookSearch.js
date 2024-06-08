@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 import './BookSearch.css';
 
 const BookSearch = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (query.length > 2) {
@@ -23,10 +26,14 @@ const BookSearch = () => {
         localStorage.setItem('bookshelf', JSON.stringify(bookshelf));
     };
 
+    function handleClick() {
+        navigate("/bookshelf"); // Replace with your desired route
+    }
+
     return (
         <div className="book-search-container">
             <h1>Search by book name:</h1>
-            <button className="bookshelf-button" onClick={() => window.location.href = '/bookshelf'}>My Bookshelf</button>
+            <button className="bookshelf-button" onClick={handleClick}>My Bookshelf</button>
             <input
                 type="text"
                 className="search-input"

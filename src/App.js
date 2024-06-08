@@ -6,7 +6,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/Personal-BookShelf_ReactJS_RestAPI/">
       <Routes>
         <Route path="/" element={<BookSearch />} />
         <Route path="/bookshelf" element={<Bookshelf />} />
